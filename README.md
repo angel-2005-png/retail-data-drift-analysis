@@ -35,6 +35,8 @@ Matplotlib / Seaborn
 
 Scipy (Statistical testing)
 
+SQL
+
 ### Dataset Description
 
 The dataset contains retail transaction records including:
