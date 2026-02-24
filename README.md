@@ -1,4 +1,4 @@
-#### Retail Data Drift Analysis
+## Retail Data Drift Analysis
 ### Project Overview
 
 This project analyzes data drift in retail transaction data to detect changes in feature distributions over time.
@@ -11,13 +11,13 @@ The goal is to proactively detect when retraining or monitoring is required.
 
 In real-world retail systems, customer behavior evolves over time due to:
 
-.Seasonal changes
+Seasonal changes
 
-.Pricing updates
+Pricing updates
 
-.Marketing campaigns
+Marketing campaigns
 
-.External economic factors
+External economic factors
 
 If these changes are not detected early, predictive models may become unreliable.
 
@@ -27,13 +27,13 @@ This project evaluates whether key numerical and categorical features have stati
 
 Python
 
-.Pandas
+Pandas
 
-.NumPy
+NumPy
 
-.Matplotlib / Seaborn
+Matplotlib / Seaborn
 
-.Scipy (Statistical testing)
+Scipy (Statistical testing)
 
 ### Dataset Description
 
