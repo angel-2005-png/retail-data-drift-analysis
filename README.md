@@ -1,82 +1,118 @@
-# Retail Sales Analysis & Drift Detection
+### Retail Data Drift Analysis
+### Project Overview
 
-##  Project Overview
-This project analyzes historical retail transaction data to monitor revenue behavior, customer spending patterns, and detect distribution drift over time. 
+This project analyzes data drift in retail transaction data to detect changes in feature distributions over time.
 
-The objective is to simulate a real-world business analytics workflow where:
-- Revenue trends are monitored
-- High-value customers are identified
-- Model performance is evaluated on future data
-- Feature drift is detected across time periods
+Data drift can significantly impact model performance in production systems. This analysis identifies whether retail features such as purchase amount, customer behavior, or product categories have shifted across time periods.
 
+The goal is to proactively detect when retraining or monitoring is required.
 
+### Problem Statement
 
-## Tech Stack
-- Python (Pandas, NumPy)
-- Scikit-learn (Logistic Regression)
-- Scipy (KS Test for drift detection)
-- Matplotlib (Revenue visualization)
-- SQL (Revenue aggregation & segmentation queries)
+In real-world retail systems, customer behavior evolves over time due to:
 
+Seasonal changes
 
+Pricing updates
 
-### Key Analysis Performed
+Marketing campaigns
 
-### Revenue Analysis
-- Total revenue calculation
-- Monthly revenue trend visualization
-- Revenue by country
-- Top 10 customers by revenue
-- Average order value
+External economic factors
 
-### High-Value Order Classification
-- Defined high-value orders using 75th percentile threshold
-- Built logistic regression model
-- Evaluated model performance on future time batches
+If these changes are not detected early, predictive models may become unreliable.
 
-### Drift Detection
-- Compared training data with future data
-- Used Kolmogorov–Smirnov (KS) test
-- Identified statistically significant feature distribution shifts
+This project evaluates whether key numerical and categorical features have statistically drifted between two time periods.
 
+### Tools & Technologies
 
+Python
 
-## Project Structure
+Pandas
 
-retail-sales-drift-analysis/
+NumPy
 
-analysis.py              # End-to-end analysis pipeline
+Matplotlib / Seaborn
 
-queries.sql              # Business SQL queries
+Scipy (Statistical testing)
 
+### Dataset Description
 
- requirements.txt         # Python dependencies
-Readme.txt
+The dataset contains retail transaction records including:
 
+Customer ID
 
-### Business Relevance
+Quantity
 
-This project demonstrates:
-- Time-based data splitting
-- Behavioral change monitoring
-- Revenue analytics
-- Model stability evaluation
-- Basic model monitoring workflow
+Unit price
 
-It simulates how analysts monitor changing customer behavior in retail environments.
+Invoice Date 
+etc.
+The dataset used in this prject was collected from kaggle which contains retail transaction records of an e-commerce website  in the UK over the year 2010-2011
 
-## How to Run
+Data was split into:
 
-1. Install dependencies:
-   pip install -r requirements.txt
+Reference Period (Past Data)
 
-2. Run:
-   python analysis.py
+Current Period (Recent Data)
 
----
+Drift detection was performed by comparing these two segments.
 
-## Future Improvements
-- Dashboard integration (Power BI / Tableau)
-- Automated drift alerts
-- Feature importance analysis
-- Model retraining pipeline
+### Methodology
+###  Data Cleaning
+
+Handled missing values
+
+Ensured consistent data types
+
+Removed duplicates
+
+### Feature Distribution Comparison
+
+Histogram comparison
+
+Kernel Density Estimation (KDE)
+
+Summary statistics comparison
+
+### Statistical Testing
+
+Kolmogorov–Smirnov Test for numerical features
+
+Chi-Square Test for categorical features
+
+These tests determine whether distribution changes are statistically significant.
+
+### Key Findings
+
+Certain numerical features showed noticeable distribution shifts.
+
+Seasonal variation influenced purchasing patterns.
+
+Feature drift indicates that predictive models should be monitored regularly.
+
+Some categorical distributions changed significantly, suggesting customer preference shifts.
+
+### Business Insight
+
+The detected data drift suggests:
+
+Models trained on historical retail data may degrade over time.
+
+Continuous monitoring systems should be implemented.
+
+Quarterly retraining may be necessary in dynamic retail environments.
+
+### How to Run the Project
+git clone https://github.com/angel-2005-png/retail-data-drift-analysis.git
+cd retail-data-drift-analysis
+pip install -r requirements.txt
+python drift_analysis.py
+### Future Improvements
+
+Automate drift alerts
+
+Integrate dashboard for visualization
+
+Add feature importance tracking
+
+Deploy monitoring pipeline
