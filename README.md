@@ -104,9 +104,13 @@ Quarterly retraining may be necessary in dynamic retail environments.
 
 ### How to Run the Project
 git clone https://github.com/angel-2005-png/retail-data-drift-analysis.git
+
 cd retail-data-drift-analysis
+
 pip install -r requirements.txt
+
 python drift_analysis.py
+
 ### Future Improvements
 
 Automate drift alerts
